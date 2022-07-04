@@ -1,0 +1,32 @@
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Auto Dropball Created By Rim";
+    Text = "Press P to turn off and on.";
+})
+
+local UIS = game:GetService("UserInputService")
+local bool = true
+
+
+UIS.InputBegan:Connect(function(inp, gpe)
+    if gpe then return end
+
+    if inp.KeyCode == Enum.KeyCode.P then 
+        bool = not bool
+        print("looping ended")
+    end
+end)
+
+while wait() do 
+    if bool then 
+    local descendants = game.workspace:GetDescendants()
+ 
+    for index, descendants in pairs(descendants) do
+    if descendants .Name == "Basketball" then
+    descendants.block:FireServer()
+
+
+    end
+end
+end
+end
